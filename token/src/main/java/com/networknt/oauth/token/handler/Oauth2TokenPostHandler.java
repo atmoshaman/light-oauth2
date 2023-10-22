@@ -251,6 +251,7 @@ public class Oauth2TokenPostHandler extends TokenAuditHandler implements LightHt
                     if(redirectUri == null) {
                         throw new ApiException(new Status(MISSING_REDIRECT_URI, uri));
                     } else {
+                        // 这里是判断两次的 redirect_uri 是否一致
                         if(!uri.equals(redirectUri)) {
                             throw new ApiException(new Status(MISMATCH_REDIRECT_URI, redirectUri, uri));
                         }
